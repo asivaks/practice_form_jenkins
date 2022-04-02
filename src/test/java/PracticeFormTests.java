@@ -26,7 +26,7 @@ public class PracticeFormTests {
         final String hobbies = "Sports";
         final String currAddr = "Current Address";
         final String state = "NCR";
-        final String city = "Delphi";
+        final String city = "Delhi";
 
         open("/automation-practice-form");
 
@@ -46,11 +46,14 @@ public class PracticeFormTests {
 
         $("[id=currentAddress]").setValue(currAddr);
 
-        // TODO: 02.04.2022 State
+        $("[id=state]").click();
+        $("[id=stateCity-wrapper]").$(byText(state)).click();
+        $("[id=city]").click();
+        $("[id=stateCity-wrapper]").$(byText(city)).click();
 
-        // TODO: 02.04.2022 City
 
-        $("[id=submit]").click();
+
+        //$("[id=submit]").click();
 
     }
 }
