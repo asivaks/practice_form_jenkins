@@ -93,7 +93,6 @@ public class PracticeFormTests {
         final String email = "alex@mail.xxx";
         final String gender = "Male";
         final String phone = "1234567890";
-        //final String dateOfBirth = "03 Apr 2000";
         final String dateOfBirthMonthDay = "02" ; //as string
         final String dateOfBirthMonthFull = "December";
         final String dateOfBirthMonthYear = "2000";  //as string
