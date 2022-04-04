@@ -17,6 +17,7 @@ public class PracticeFormTests {
         Configuration.browserSize = "1920x1080";
     }
 
+
     @Test
     void fillFormTestDateType() {
         //VARIABLES
@@ -62,6 +63,13 @@ public class PracticeFormTests {
         $("#uploadPicture").uploadFromClasspath(imgPath);
         $("[id=currentAddress]").setValue(currAddr);
 
+        //$("[id=currentAddress]").sendKeys((Keys.COMMAND + "-"));
+        //$("[id=currentAddress]").sendKeys((Keys.COMMAND + "-"));
+        //$("[id=currentAddress]").sendKeys((Keys.COMMAND + "-"));
+        //$("[id=currentAddress]").sendKeys((Keys.COMMAND + "-"));
+        //$("[id=currentAddress]").sendKeys((Keys.COMMAND + Keys.SUBTRACT));
+
+
         $("[id=state]").click();
         $("[id=stateCity-wrapper]").$(byText(state)).click();
         $("[id=city]").click();
@@ -84,6 +92,7 @@ public class PracticeFormTests {
                 text(state + ' ' + city)
         );
     }
+
 
     @Test
     void fillFormTestDateClick() {
@@ -117,19 +126,19 @@ public class PracticeFormTests {
         //$("[id=dateOfBirthInput]").clear();
 
         //DATE OF BIRTH BLOCK START
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(dateOfBirthMonthFull);
-        $(".react-datepicker__year-select").selectOption(dateOfBirthMonthYear);
+        $("[id=dateOfBirthInput]").click();
+        $("[class=react-datepicker__month-select]").selectOption(dateOfBirthMonthFull);
+        $("[class=react-datepicker__year-select]").selectOption(dateOfBirthMonthYear);
 
         //will also work
         //$("[aria-label$='Choose Saturday, December 2nd, 2000']").click();
 
         //"02"->"2"
-        $( byText( Integer.toString(
-                                    Integer.parseInt(dateOfBirthMonthDay)
-                                    )
+        $("[class=react-datepicker__month]").$(byText(Integer.toString(
+                                Integer.parseInt(dateOfBirthMonthDay)
+                        )
                 )
-            ).click();
+        ).click();
         //DATE OF BIRTH BLOCK END
 
         //<div class="subjects-auto-complete__control css-yk16xz-control"><div class="subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3"><div class="subjects-auto-complete__placeholder css-1wa3eu0-placeholder"></div><div class="css-1g6gooi"><div class="subjects-auto-complete__input" style="display: inline-block;"><input autocapitalize="none" autocomplete="off" autocorrect="off" id="subjectsInput" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" value="" style="box-sizing: content-box; width: 2px; background: 0px center; border: 0px; font-size: inherit; opacity: 1; outline: 0px; padding: 0px; color: inherit;"><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></div></div><div class="subjects-auto-complete__indicators css-1wy0on6"><span class="subjects-auto-complete__indicator-separator css-1okebmr-indicatorSeparator"></span></div></div>
@@ -139,7 +148,7 @@ public class PracticeFormTests {
         //$("[id='submit']").scrollIntoView(true);
 
         $("[id=hobbiesWrapper]").$(byText(hobbies)).click();
-        $("#uploadPicture").uploadFromClasspath(imgPath);
+        $("[id=uploadPicture]").uploadFromClasspath(imgPath);
         $("[id=currentAddress]").setValue(currAddr);
 
         $("[id=state]").click();
@@ -163,8 +172,6 @@ public class PracticeFormTests {
                 text(currAddr),
                 text(state + ' ' + city)
         );
-
-
 
     }
 
