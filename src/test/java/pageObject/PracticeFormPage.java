@@ -20,7 +20,8 @@ public class PracticeFormPage {
     SelenideElement emailInput = $("#userEmail");
     SelenideElement genderInput = $("#genterWrapper");
     SelenideElement phoneInput =  $("#userNumber");
-    SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
+    //moved to CalendarComponent
+    //SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
     SelenideElement subjectInput = $("#subjectsInput");
     SelenideElement hobbiesInput = $("#hobbiesWrapper");
     SelenideElement pictureInput = $("#uploadPicture");
@@ -70,23 +71,9 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setDateOfBirthByTyping(String dateOfBirthDay, String dateOfBirthMonthFull, String dateOfBirthYear) {
-
-
-
-        dateOfBirthInput.click();
-        $(".react-datepicker__month-select").selectOption(dateOfBirthMonthFull);
-        $(".react-datepicker__year-select").selectOption(dateOfBirthYear);
-
-        //will also work
-        //$("[aria-label$='Choose Saturday, December 2nd, 2000']").click();
-
-        //"02"->"2"
-        $(".react-datepicker__month").$(byText(Integer.toString(
-                                Integer.parseInt(dateOfBirthDay)
-                        )
-                )
-        ).click();
+    public PracticeFormPage setDateOfBirthByClicking(String dateOfBirthDay, String dateOfBirthMonthFull, String dateOfBirthYear) {
+        CalendarComponent calendarComponent = new CalendarComponent();
+        calendarComponent.setDate(dateOfBirthDay, dateOfBirthMonthFull, dateOfBirthYear);
         return this;
     }
 

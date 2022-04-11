@@ -41,12 +41,15 @@ public class PracticeFormPageObjectTests {
 
         Date dateOfBirth = faker.date().birthday();
         calendar.setTime(dateOfBirth);
+        System.out.println("dateOfBirth= " + dateOfBirth);
         final String dateOfBirthDay = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
         System.out.println("dateOfBirthDay= " + dateOfBirthDay);
                                 //starts from 0
         final int bdMonth = calendar.get(Calendar.MONTH); //needed only to get dateOfBirthMonthFull
+        System.out.println("bdMonth= " + bdMonth + "(starts from 0)");
                                                   //starts from 1
         final String dateOfBirthMonthFull = Month.of(bdMonth+1).getDisplayName(TextStyle.FULL, Locale.US);  //"December"
+        System.out.println("dateOfBirthMonthFull= " + dateOfBirthMonthFull);
         final String dateOfBirthYear = String.valueOf(calendar.get(Calendar.YEAR)); //"2000"
 
         //should be like this "02 December,2000"
@@ -54,7 +57,7 @@ public class PracticeFormPageObjectTests {
                 ? dateOfBirthDay
                 : "0" + dateOfBirthDay;
         final String dateOfBirthExpect = dateOfBirthDay2Digits + " " + dateOfBirthMonthFull + "," + dateOfBirthYear;
-        System.out.println(dateOfBirthExpect);
+        System.out.println("dateOfBirthExpect= "+ dateOfBirthExpect);
 
         final String subjects = "Maths";
 
@@ -74,7 +77,7 @@ public class PracticeFormPageObjectTests {
                         .setEmail(email)
                         .setGender(gender)
                         .setPhone(phone)
-                        .setDateOfBirthByTyping(dateOfBirthDay, dateOfBirthMonthFull, dateOfBirthYear)
+                        .setDateOfBirthByClicking(dateOfBirthDay, dateOfBirthMonthFull, dateOfBirthYear)
                         .setSubject(subjects)
                         .setHobby(hobbies)
                         .setPicture(imgPath)
