@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class PracticeFormPage {
 
     //locators
-    SelenideElement formHeaderLocator = $("#stateCity-wrapper");
+    SelenideElement formHeaderLocator = $(".practice-form-wrapper");
     final String formHeaderText = "Student Registration Form";
 
     SelenideElement firstNameInput = $("#firstName");
@@ -65,13 +65,24 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setDateOfBirthByTyping(String dateOfBirth) {
-        //Does not work here
-        //$("[id=dateOfBirthInput]").clear();
+    public PracticeFormPage setDateOfBirthByTyping(String dateOfBirthDay, String dateOfBirthMonthFull, String dateOfBirthYear) {
 
-        dateOfBirthInput.sendKeys((Keys.COMMAND + "a"));
-        dateOfBirthInput.sendKeys(Keys.SPACE);
-        dateOfBirthInput.setValue(dateOfBirth).pressEnter();
+
+
+        dateOfBirthInput.click();
+        $(".react-datepicker__month-select").selectOption(dateOfBirthMonthFull);
+        $(".react-datepicker__year-select").selectOption(dateOfBirthYear);
+
+        //will also work
+        //$("[aria-label$='Choose Saturday, December 2nd, 2000']").click();
+
+        //"02"->"2"
+        $(".react-datepicker__month").$(byText(Integer.toString(
+                                Integer.parseInt(dateOfBirthDay)
+                        )
+                )
+        ).click();
+
         return this;
     }
 

@@ -72,9 +72,6 @@ public class PracticeFormTests {
 
         $("#currentAddress").setValue(currAddr);
 
-
-
-
         $("#state").click();
         $("#stateCity-wrapper").$(byText(state)).click();
         $("#city").click();
@@ -112,11 +109,11 @@ public class PracticeFormTests {
         final String email = "alex@mail.xxx";
         final String gender = "Male";
         final String phone = "1234567890";
-        final String dateOfBirthMonthDay = "02" ; //as string
+        final String dateOfBirthDay = "02" ; //as string
         final String dateOfBirthMonthFull = "December";
-        final String dateOfBirthMonthYear = "2000";  //as string
+        final String dateOfBirthYear = "2000";  //as string
         //final String dateOfBirthExpect = "02 December,2000";
-        final String dateOfBirthExpect = dateOfBirthMonthDay + " " + dateOfBirthMonthFull + "," + dateOfBirthMonthYear;
+        final String dateOfBirthExpect = dateOfBirthDay + " " + dateOfBirthMonthFull + "," + dateOfBirthYear;
         final String subjects = "Maths";
         final String hobbies = "Sports";
         final String imgPath = "image.jpeg";
@@ -142,14 +139,14 @@ public class PracticeFormTests {
         //DATE OF BIRTH BLOCK START
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(dateOfBirthMonthFull);
-        $(".react-datepicker__year-select").selectOption(dateOfBirthMonthYear);
+        $(".react-datepicker__year-select").selectOption(dateOfBirthYear);
 
         //will also work
         //$("[aria-label$='Choose Saturday, December 2nd, 2000']").click();
 
         //"02"->"2"
         $(".react-datepicker__month").$(byText(Integer.toString(
-                                Integer.parseInt(dateOfBirthMonthDay)
+                                Integer.parseInt(dateOfBirthDay)
                         )
                 )
         ).click();
