@@ -1,5 +1,6 @@
 package pageObject;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 
@@ -10,9 +11,10 @@ import static com.codeborne.selenide.Selenide.*;
 public class PracticeFormPage {
 
     //locators
+
     SelenideElement formHeaderLocator = $(".practice-form-wrapper");
     final String formHeaderText = "Student Registration Form";
-
+    //inputs
     SelenideElement firstNameInput = $("#firstName");
     SelenideElement lastNameInput = $("#lastName");
     SelenideElement emailInput = $("#userEmail");
@@ -26,6 +28,9 @@ public class PracticeFormPage {
     SelenideElement stateInput= $("#state");
     SelenideElement cityInput= $("#city");
     SelenideElement stateCityWrapperInput = $("#stateCity-wrapper");
+    //results
+    SelenideElement resultsHeaderLocator = $("#example-modal-sizes-title-lg");
+    SelenideElement resultsTableLocator = $(".table-responsive");
 
     //actions
     public PracticeFormPage openPage() {
@@ -82,7 +87,6 @@ public class PracticeFormPage {
                         )
                 )
         ).click();
-
         return this;
     }
 
@@ -134,21 +138,33 @@ public class PracticeFormPage {
     public PracticeFormPage setCity(String city) {
         cityInput.click();
         stateCityWrapperInput.$(byText(city)).click();
-
         return this;
     }
 
+    public PracticeFormPage submitForm() {
+        //If browser window would be to short scroll will fail
+        //$("[id='submit']").scrollIntoView(true);
 
+        //DOES NOT WORK
+        //$("[id=currentAddress]").sendKeys((Keys.COMMAND + "-"));
+        //$("[id=currentAddress]").sendKeys((Keys.COMMAND + Keys.SUBTRACT));
+        // TODO: 11.04.2022 Fix this  $("#submit").isDisplayed() == true while button is outside the screen
+        if (!$("#submit").isDisplayed()) {
+            Selenide.zoom(0.75);
+        }
 
-
-
-
-
-
-    public PracticeFormPage checkResult(String value) {
-        $(".table-responsive").shouldHave(text(value));
+        $("#submit").click();
         return this;
+    }
 
+    public PracticeFormPage checkTableHeader(String resultsOkMessage) {
+        resultsHeaderLocator.shouldHave(text(resultsOkMessage));
+        return this;
+    }
+
+    public PracticeFormPage checkTableResult(String value) {
+        resultsTableLocator.shouldHave(text(value));
+        return this;
     }
 
 }
