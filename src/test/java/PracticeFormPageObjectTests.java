@@ -1,8 +1,7 @@
-package pageObject;
-
 import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.Month;
@@ -12,6 +11,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
+@DisplayName("Practice Form Page Tests")
 public class PracticeFormPageObjectTests {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
@@ -26,11 +26,10 @@ public class PracticeFormPageObjectTests {
         //Configuration.browserSize = "1920x900";  //move Submit button outside display area
     }
 
-
+    @DisplayName("Practice Form Test - faker, select date using menu")
     @Test
     void fillFormTestDateClick() {
         //VARIABLES
-        //final String firstName = "Alex";
         final String firstName = faker.name().firstName();
         final String lastName = faker.name().lastName();
         final String email = faker.internet().emailAddress();
@@ -94,6 +93,6 @@ public class PracticeFormPageObjectTests {
                         .checkTableResult(hobbies)
                         .checkTableResult(imgPath)
                         .checkTableResult(currAddr)
-                        .checkTableResult(state + ' ' + city);
+                        .checkTableResult(state + " " + city);
     }
 }
