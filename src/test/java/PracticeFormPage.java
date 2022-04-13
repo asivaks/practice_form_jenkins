@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
 
-    //locators
+    //LOCATORS
 
     SelenideElement formHeaderLocator = $(".practice-form-wrapper");
     final String formHeaderText = "Student Registration Form";

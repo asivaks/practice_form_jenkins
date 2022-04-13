@@ -11,6 +11,12 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
+//will be displayed only if
+//Preferences
+//Build, Execution, Deployment
+//Build Tools
+//Gradle
+//Run tests using = IntelliJ Idea
 @DisplayName("Practice Form Page Tests")
 public class PracticeFormPageObjectTests {
 
@@ -69,7 +75,7 @@ public class PracticeFormPageObjectTests {
 
         final String resultsOkMessage =  "Thanks for submitting the form";
 
-        //actions
+                        //ACTIONS
         practiceFormPage.openPage()
                         .setFirstName(firstName)
                         .setLastName(lastName)
