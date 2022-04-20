@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 public class RadioButtonPage
 {
 
-    //LACATORS
+    //LOCATORS
     SelenideElement capchionLocator = $(".mb-3");
     SelenideElement headerLocator = $(".main-header");
     //SelenideElement likeOptionInput
