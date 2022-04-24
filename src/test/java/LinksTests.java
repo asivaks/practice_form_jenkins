@@ -40,15 +40,6 @@ public class LinksTests {
     void checkLink(String linkName, String linkUrl) {
         open("");
 
-        /* //WTF???
-        $(byText("Elements")).closest(".card");         //works
-        $(byText("Elements")).closest(".top-card");     //works
-        $(".card.top-card");                                                   //works
-        $("[class*=card][class*=top-card]");                                   //works
-        $(byText("Elements")).$("[class*=card][class*=top-card]");  //nope
-        $(byText("Elements")).$(".card.top-card");                  //nope
-        */
-
         $(byText("Elements")).closest(".top-card").click();
         $(byText("Links")).closest(".btn").click();
         //$(linkText(linkName)).click();
