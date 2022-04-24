@@ -1,5 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -13,9 +15,10 @@ public class PracticeFormSimpleTests {
     @BeforeAll
     static void setUp() {
 //        System.out.println("### Before All");
-        Configuration.holdBrowserOpen = true;
+        //Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @Disabled("Somehow clearing of data filed stopped working")

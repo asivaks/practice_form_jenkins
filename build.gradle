@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.qameta.allure" version "2.9.6"
 }
 
 group 'org.example'
@@ -15,8 +16,25 @@ dependencies {
         'com.codeborne:selenide:6.3.5',
         "org.junit.jupiter:junit-jupiter:5.8.2",
         'com.github.javafaker:javafaker:1.0.2', ////https://github.com/DiUS/java-faker
-        "org.slf4j:slf4j-simple:1.7.36"  //logger
+        "org.slf4j:slf4j-simple:1.7.36",  //logger
+        'io.qameta.allure:allure-selenide:2.17.3'
     )
+}
+
+
+allure {
+    report {
+        version.set("2.17.3")  //Allure report version
+    }
+    adapter {
+        aspectjVersion = "1.9.9"
+        aspectjWeaver.set(true) //@Steps
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.17.3") // Allure JUnit5 vesrion
+            }
+        }
+    }
 }
 
 test {

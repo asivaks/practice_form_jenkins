@@ -1,5 +1,7 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,9 +28,10 @@ public class PracticeFormPageObjectTests {
 
     @BeforeAll
     static void setUp() {
-        Configuration.holdBrowserOpen = true;
+        //Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
+        SelenideLogger.addListener("allure", new AllureSelenide());
         //Configuration.browserSize = "1920x900";  //move Submit button outside display area
     }
 
@@ -58,7 +61,7 @@ public class PracticeFormPageObjectTests {
         final String dateOfBirthYear = String.valueOf(calendar.get(Calendar.YEAR)); //"2000"
 
         //should be like this "02 December,2000"
-        String dateOfBirthDay2Digits = (calendar.get(Calendar.DAY_OF_MONTH) > 10)
+        String dateOfBirthDay2Digits = (calendar.get(Calendar.DAY_OF_MONTH) >= 10)
                 ? dateOfBirthDay
                 : "0" + dateOfBirthDay;
         final String dateOfBirthExpect = dateOfBirthDay2Digits + " " + dateOfBirthMonthFull + "," + dateOfBirthYear;

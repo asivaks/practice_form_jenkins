@@ -13,6 +13,9 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
+# Allure
+allure-results/
+
 # AWS User-specific
 .idea/**/aws.xml
 
