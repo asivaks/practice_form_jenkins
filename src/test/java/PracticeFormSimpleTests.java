@@ -21,7 +21,7 @@ public class PracticeFormSimpleTests {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    @Disabled("Somehow clearing of data filed stopped working")
+    @Disabled("Somehow clearing of filed data stopped working")
     @Test
     void fillFormTestDateType() {
         //VARIABLES

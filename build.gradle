@@ -25,7 +25,7 @@ dependencies {
         "org.junit.jupiter:junit-jupiter:$junitVersion",
         "com.github.javafaker:javafaker:$javafakerVersion", ////https://github.com/DiUS/java-faker
         "org.slf4j:slf4j-simple:$slf4jVersion",  //logger
-        "io.qameta.allure:allure-selenide:$allureSelenideVersion"
+        "io.qameta.allure:allure-selenide:$allureSelenideVersion" //selenide listener
     )
 }
 
@@ -45,6 +45,28 @@ allure {
     }
 }
 
-test {
+//test {
+//    useJUnitPlatform()
+//}
+
+// what is the difference between the previous one and the next one ?
+
+tasks.withType(Test) {
     useJUnitPlatform()
+
+    //add detailed info about passed & failed tests
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+
+//gradle clean tag_linkTests
+task linksTests(type: Test) {
+    useJUnitPlatform{
+        includeTags "tag_linksTests"
+    }
 }
