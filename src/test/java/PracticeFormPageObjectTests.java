@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
+import static com.codeborne.selenide.Selenide.executeJavaScript;
+
 //will be displayed only if
 //Preferences
 //Build, Execution, Deployment
@@ -81,6 +83,9 @@ public class PracticeFormPageObjectTests extends TestBase{
         final String city = "Delhi";
 
         final String resultsOkMessage =  "Thanks for submitting the form";
+
+        executeJavaScript("$('fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
 
                         //ACTIONS
         practiceFormPage.openPage()

@@ -1,5 +1,9 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -12,12 +16,14 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
 @Tag("tag_linksTests")
-public class LinksTests extends TestBase {
+//public class LinksTests extends TestBase {
+public class LinksTests {
 //    LinksPage linksPage = new LinksPage();
 
 
-/*
-//  moved to TestBase
+
+// if moved to TestBase will fail with
+//  java.lang.IllegalStateException: No webdriver is bound to current thread: 13. You need to call open(url) first.
     @BeforeAll
     static void setUp() {
         //Configuration.holdBrowserOpen = true;
@@ -26,7 +32,7 @@ public class LinksTests extends TestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
- */
+
 
     static Stream<Arguments> linksStream() {
         return Stream.of(

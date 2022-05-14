@@ -1,9 +1,5 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -19,6 +15,8 @@ public class LinksLambdaStepTests extends TestBase{
 //    LinksPage linksPage = new LinksPage();
 
     /*
+//  will fail with
+//  java.lang.IllegalStateException: No webdriver is bound to current thread: 13. You need to call open(url) first.
 //  moved to TestBase
     @BeforeAll
     static void setUp() {
