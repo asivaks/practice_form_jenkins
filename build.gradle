@@ -10,28 +10,36 @@ repositories {
     mavenCentral()
 }
 
+
+def allureVersion = "2.17.3",
+    junitVersion = "5.8.2",
+    slf4jVersion = "1.7.36",
+    allureSelenideVersion = "2.17.3",
+    javafakerVersion = "1.0.2",
+    selenideVersion = "6.3.5"
+
 dependencies {
-    implementation('com.github.javafaker:javafaker:1.0.2')
+    implementation("com.github.javafaker:javafaker:$javafakerVersion")
     testImplementation (
-        'com.codeborne:selenide:6.3.5',
-        "org.junit.jupiter:junit-jupiter:5.8.2",
-        'com.github.javafaker:javafaker:1.0.2', ////https://github.com/DiUS/java-faker
-        "org.slf4j:slf4j-simple:1.7.36",  //logger
-        'io.qameta.allure:allure-selenide:2.17.3'
+        "com.codeborne:selenide:$selenideVersion",
+        "org.junit.jupiter:junit-jupiter:$junitVersion",
+        "com.github.javafaker:javafaker:$javafakerVersion", ////https://github.com/DiUS/java-faker
+        "org.slf4j:slf4j-simple:$slf4jVersion",  //logger
+        "io.qameta.allure:allure-selenide:$allureSelenideVersion"
     )
 }
 
 
 allure {
     report {
-        version.set("2.17.3")  //Allure report version
+        version.set(allureVersion)  //Allure report version
     }
     adapter {
         aspectjVersion = "1.9.9" //without it allure annotated steps would not work
         aspectjWeaver.set(true) //@Steps
         frameworks {
             junit5 {
-                adapterVersion.set("2.17.3") // Allure JUnit5 version
+                adapterVersion.set(allureVersion) // Allure JUnit5 version
             }
         }
     }
