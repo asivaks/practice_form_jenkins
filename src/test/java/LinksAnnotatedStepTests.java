@@ -9,8 +9,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class LinksAnnotatedStepTests {
+public class LinksAnnotatedStepTests extends TestBase{
 
+    /*
+//  moved to TestBase
     @BeforeAll
     static void setUp() {
         //Configuration.holdBrowserOpen = true;
@@ -18,6 +20,8 @@ public class LinksAnnotatedStepTests {
         Configuration.browserSize = "1920x1080";
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
+
+     */
 
     static Stream<Arguments> linksStream() {
         return Stream.of(

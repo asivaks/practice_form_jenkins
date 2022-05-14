@@ -10,11 +10,13 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class MenuItemsParametrisedMethodSourceTests {
+public class MenuItemsParametrisedMethodSourceTests extends TestBase{
 
 
     MenuPage menuPage = new MenuPage();
 
+    /*
+//  moved to TestBase
     @BeforeAll
     static void setUp() {
 //        Configuration.holdBrowserOpen = true;
@@ -23,6 +25,8 @@ public class MenuItemsParametrisedMethodSourceTests {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
     }
+
+     */
 
     static Stream<Arguments> checkLeftMenu() {
         return Stream.of(

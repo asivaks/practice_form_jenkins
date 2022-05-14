@@ -11,7 +11,12 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeFormSimpleTests {
+public class PracticeFormSimpleTests extends TestBase{
+
+
+    /*
+
+//  moved to TestBase
     @BeforeAll
     static void setUp() {
 //        System.out.println("### Before All");
@@ -20,6 +25,8 @@ public class PracticeFormSimpleTests {
         Configuration.browserSize = "1920x1080";
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
+
+     */
 
     @Disabled("Somehow clearing of filed data stopped working")
     @Test

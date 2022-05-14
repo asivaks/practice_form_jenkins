@@ -20,12 +20,14 @@ import java.util.Random;
 //Gradle
 //Run tests using = IntelliJ Idea
 @DisplayName("Practice Form Page Tests")
-public class PracticeFormPageObjectTests {
+public class PracticeFormPageObjectTests extends TestBase{
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
     Faker faker = new Faker(); //https://github.com/DiUS/java-faker
     Calendar calendar = Calendar.getInstance();  //get day, month etc from date  https://www.baeldung.com/java-year-month-day
 
+/*
+//  moved to TestBase
     @BeforeAll
     static void setUp() {
         //Configuration.holdBrowserOpen = true;
@@ -34,6 +36,8 @@ public class PracticeFormPageObjectTests {
         SelenideLogger.addListener("allure", new AllureSelenide());
         //Configuration.browserSize = "1920x900";  //move Submit button outside display area
     }
+
+ */
 
     @DisplayName("Practice Form Test - faker, select date using menu")
     @Test

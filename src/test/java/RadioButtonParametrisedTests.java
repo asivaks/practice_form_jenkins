@@ -6,9 +6,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class RadioButtonParametrisedTests {
+public class RadioButtonParametrisedTests extends TestBase{
 
     RadioButtonPage radioButtonPage = new RadioButtonPage();
+
+
+    /*
+//  moved to TestBase
 
     @BeforeAll
     static void setUp() {
@@ -16,8 +20,10 @@ public class RadioButtonParametrisedTests {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         SelenideLogger.addListener("allure", new AllureSelenide());
-
     }
+
+     */
+
     @ValueSource(strings = {
             "Yes",
             "Impressive"

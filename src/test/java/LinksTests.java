@@ -1,12 +1,6 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -18,9 +12,12 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
 @Tag("tag_linksTests")
-public class LinksTests {
+public class LinksTests extends TestBase {
 //    LinksPage linksPage = new LinksPage();
 
+
+/*
+//  moved to TestBase
     @BeforeAll
     static void setUp() {
         //Configuration.holdBrowserOpen = true;
@@ -29,11 +26,13 @@ public class LinksTests {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
+ */
+
     static Stream<Arguments> linksStream() {
         return Stream.of(
                 Arguments.of("Home", "https://demoqa.com/"),
-                        Arguments.of("Home[a-zA-Z\\d]{5}", "https://demoqa.com/"),
-                        Arguments.of("FAIL", "https://fail.xxx/")
+                Arguments.of("Home[a-zA-Z\\d]{5}", "https://demoqa.com/"),
+                Arguments.of("FAIL", "https://fail.xxx/")
         );
     }
 

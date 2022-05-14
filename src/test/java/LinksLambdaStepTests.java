@@ -15,9 +15,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static io.qameta.allure.Allure.step;
 
-public class LinksLambdaStepTests {
+public class LinksLambdaStepTests extends TestBase{
 //    LinksPage linksPage = new LinksPage();
 
+    /*
+//  moved to TestBase
     @BeforeAll
     static void setUp() {
         //Configuration.holdBrowserOpen = true;
@@ -25,6 +27,8 @@ public class LinksLambdaStepTests {
         Configuration.browserSize = "1920x1080";
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
+
+     */
 
     static Stream<Arguments> linksStream() {
         return Stream.of(
