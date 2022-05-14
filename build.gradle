@@ -64,9 +64,10 @@ tasks.withType(Test) {
 }
 
 
-//gradle clean tag_linkTests
+//gradle clean tag_linksTests
 task linksTests(type: Test) {
     useJUnitPlatform{
         includeTags "tag_linksTests"
+        //excludeTags "excludedTag"
     }
 }
