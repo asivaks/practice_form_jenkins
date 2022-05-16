@@ -84,8 +84,8 @@ public class PracticeFormPageObjectTests extends TestBase{
 
         final String resultsOkMessage =  "Thanks for submitting the form";
 
-        executeJavaScript("$('fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        //executeJavaScript("$('fixedban').remove()");
+        //executeJavaScript("$('footer').remove()");
 
                         //ACTIONS
         practiceFormPage.openPage()

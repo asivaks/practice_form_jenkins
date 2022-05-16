@@ -16,8 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
 @Tag("tag_linksTests")
-//public class LinksTests extends TestBase {
-public class LinksTests {
+public class LinksTests extends TestBase{
 //    LinksPage linksPage = new LinksPage();
 
 
@@ -53,7 +52,8 @@ public class LinksTests {
         $("#linkWrapper").$$("a").find(Condition.matchText(linkName)).click();
         switchTo().window(1);
         webdriver().shouldHave(url(linkUrl));
-        Selenide.closeWebDriver();
+
+        //Selenide.closeWebDriver(); //moved web driver closing to TestBase AfterEach
 
     }
 }

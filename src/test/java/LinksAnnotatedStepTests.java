@@ -28,7 +28,6 @@ public class LinksAnnotatedStepTests extends TestBase{
         );
     }
 
-    @Disabled
     @MethodSource("linksStream")
     @ParameterizedTest
     void checkLink(String linkName, String linkUrl) {
@@ -39,7 +38,8 @@ public class LinksAnnotatedStepTests extends TestBase{
                 .openLinksPage()
                 .followLink(linkName)
                 .checkIfHere(linkUrl)
-                .closeWebDriver();
+                //.closeWebDriver() //moved web driver closing to TestBase AfterAll
+                ;
 
     }
 }

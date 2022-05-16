@@ -58,7 +58,7 @@ public class LinksLambdaStepTests extends TestBase{
             webdriver().shouldHave(url(linkUrl));
         });
 
-        Selenide.closeWebDriver();
+        //Selenide.closeWebDriver(); //moved web driver closing to TestBase AfterAll
 
     }
 }
