@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -106,6 +107,7 @@ public class PracticeFormSimpleTests extends TestBase{
 
 
     @Test
+    @DisplayName("Data form simple test, date selecting by clicking on menu")
     void fillFormTestDateClick() {
         //VARIABLES
         final String firstName = "Alex";

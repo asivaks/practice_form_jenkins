@@ -29,7 +29,7 @@ public class RadioButtonParametrisedTests extends TestBase{
             "Impressive"
     })
     //@DisplayName("Parametrized test example")  name is set in ParameterizedTest annotation
-    @ParameterizedTest(name = "Parametrized test example, {0} selected")
+    @ParameterizedTest(name = "Radio button parametrized test, {0} selected")
     void RadioButtonSelectLikeOptionTest(String optionSelected) {
         //ACTIONS
         radioButtonPage.openPage()
@@ -41,7 +41,7 @@ public class RadioButtonParametrisedTests extends TestBase{
             "Yes, Impressive",
             "Impressive, Yes"
     })
-    @ParameterizedTest(name = "Parametrized test example, {0} selected, {1} not selected")
+    @ParameterizedTest(name = "Radio button parametrized test, {0} selected, {1} not selected")
     void RadioButtonSelectLikeOptionFullTest(String optionSelected, String optionNotSelected) {
         //ACTIONS
         radioButtonPage.openPage()

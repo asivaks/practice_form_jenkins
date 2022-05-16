@@ -37,7 +37,7 @@ public class LinksLambdaStepTests extends TestBase{
     }
 
     @MethodSource("linksStream")
-    @ParameterizedTest
+    @ParameterizedTest()
     void checkLink(String linkName, String linkUrl) {
         step("Open main page", () -> {
                     open("");
