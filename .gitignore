@@ -220,4 +220,5 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/java,macos,gradle,windows,intellij
 
-/src/test/resources/config/credentials.properties
+# Properties files
+*.properties
