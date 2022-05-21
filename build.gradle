@@ -51,8 +51,16 @@ allure {
 
 // what is the difference between the previous one and the next one ?
 
+//tasks.withType(Test) {
+//    useJUnitPlatform()
+//}
+
 tasks.withType(Test) {
-    useJUnitPlatform()
+    systemProperties(System.getProperties()) //get parameters from console
+    useJUnitPlatform{
+        excludeTags "sysProp"
+    }
+
 
     //add detailed info about passed & failed tests
     testLogging {
@@ -69,5 +77,17 @@ task linksTests(type: Test) {
     useJUnitPlatform{
         includeTags "tag_linksTests"
         //excludeTags "excludedTag"
+    }
+}
+
+task test5(type: Test) {
+    useJUnitPlatform {
+        includeTags "test5"
+    }
+}
+
+task sysProp(type: Test) {
+    useJUnitPlatform {
+        includeTags "sysProp"
     }
 }
