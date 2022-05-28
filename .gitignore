@@ -222,3 +222,6 @@ gradle-app.setting
 
 # Properties files
 *.properties
+
+# Notification config+token
+notifications/config.json
